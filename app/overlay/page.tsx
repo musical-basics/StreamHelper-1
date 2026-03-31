@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
 import { useOverlaySocket } from "@/hooks/useOverlaySocket";
 import { useStreamStore } from "@/store/useStreamStore";
 import type { OverlayEvent } from "@/types/events";
+import Captions from "@/components/overlay/Captions";
+import NowPlaying from "@/components/overlay/NowPlaying";
 
 export default function OverlayPage() {
   const { addCaption, setCurrentPiece, setActiveTTS, setIsApplauding } =
@@ -32,8 +33,9 @@ export default function OverlayPage() {
   return (
     // overlay-root class triggers the transparent background CSS rule
     <div className="overlay-root w-screen h-screen overflow-hidden relative">
-      {/* Overlay components mounted here in later phases with absolute positioning */}
-      {/* Phase 4: Captions + NowPlaying */}
+      {/* Phase 4: Captions (z-10, bottom-center) + NowPlaying (z-10, top-right) */}
+      <Captions />
+      <NowPlaying />
       {/* Phase 5: ChatPopup */}
       {/* Phase 6: ApplauseEffect */}
     </div>
