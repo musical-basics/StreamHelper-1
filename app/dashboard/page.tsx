@@ -3,6 +3,7 @@
 import { useOverlaySocket } from "@/hooks/useOverlaySocket";
 import { useStreamStore } from "@/store/useStreamStore";
 import type { OverlayEvent } from "@/types/events";
+import ChatFeed from "@/components/dashboard/ChatFeed";
 
 function ConnectionStatus({ status }: { status: string }) {
   return (
@@ -61,16 +62,12 @@ export default function DashboardPage() {
         )}
       </section>
 
-      {/* Panel 2: YouTube Chat Feed (placeholder — populated in Phase 5) */}
+      {/* Panel 2: YouTube Chat Feed */}
       <section className="bg-zinc-900 rounded-xl border border-zinc-800 flex flex-col overflow-hidden">
         <div className="px-4 py-3 border-b border-zinc-800">
           <h2 className="text-sm font-medium text-zinc-300">YouTube Chat Feed</h2>
         </div>
-        <div className="flex-1 overflow-y-auto p-4">
-          <p className="text-zinc-600 text-sm italic">
-            Chat feed loads in Phase 5…
-          </p>
-        </div>
+        <ChatFeed />
       </section>
 
       {/* Panel 3: Quick Actions (placeholder — expanded in Phase 6) */}

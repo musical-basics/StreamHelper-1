@@ -5,6 +5,7 @@ import { useStreamStore } from "@/store/useStreamStore";
 import type { OverlayEvent } from "@/types/events";
 import Captions from "@/components/overlay/Captions";
 import NowPlaying from "@/components/overlay/NowPlaying";
+import ChatPopup from "@/components/overlay/ChatPopup";
 
 export default function OverlayPage() {
   const { addCaption, setCurrentPiece, setActiveTTS, setIsApplauding } =
@@ -36,7 +37,7 @@ export default function OverlayPage() {
       {/* Phase 4: Captions (z-10, bottom-center) + NowPlaying (z-10, top-right) */}
       <Captions />
       <NowPlaying />
-      {/* Phase 5: ChatPopup */}
+      <ChatPopup />
       {/* Phase 6: ApplauseEffect */}
     </div>
   );
