@@ -25,7 +25,7 @@ function ConnectionStatus({ status }: { status: string }) {
 export default function DashboardPage() {
   const { captions, currentPiece } = useStreamStore();
 
-  const { status } = useOverlaySocket({
+  const { status, emit } = useOverlaySocket({
     onMessage: (event: OverlayEvent) => {
       // Dashboard listens to incoming events for display purposes
       console.log("[Dashboard] Received event:", event);
@@ -70,15 +70,23 @@ export default function DashboardPage() {
         <ChatFeed />
       </section>
 
-      {/* Panel 3: Quick Actions (placeholder — expanded in Phase 6) */}
+      {/* Panel 3: Quick Actions */}
       <section className="bg-zinc-900 rounded-xl border border-zinc-800 flex flex-col overflow-hidden">
         <div className="px-4 py-3 border-b border-zinc-800">
           <h2 className="text-sm font-medium text-zinc-300">Quick Actions</h2>
         </div>
-        <div className="flex-1 p-4">
-          <p className="text-zinc-600 text-sm italic">
-            Actions added in Phase 6…
-          </p>
+        <div className="flex-1 p-4 flex flex-col gap-3">
+          <button
+            onClick={() =>
+              emit({
+                type: "APPLAUSE",
+                timestamp: Date.now(),
+              })
+            }
+            className="flex items-center justify-center gap-2 w-full rounded-xl bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 active:scale-95 transition-all text-amber-300 font-semibold py-4 text-lg"
+          >
+            <span>👏</span> Applause
+          </button>
         </div>
       </section>
     </div>

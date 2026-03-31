@@ -6,6 +6,7 @@ import type { OverlayEvent } from "@/types/events";
 import Captions from "@/components/overlay/Captions";
 import NowPlaying from "@/components/overlay/NowPlaying";
 import ChatPopup from "@/components/overlay/ChatPopup";
+import ApplauseEffect from "@/components/overlay/ApplauseEffect";
 
 export default function OverlayPage() {
   const { addCaption, setCurrentPiece, setActiveTTS, setIsApplauding } =
@@ -38,7 +39,7 @@ export default function OverlayPage() {
       <Captions />
       <NowPlaying />
       <ChatPopup />
-      {/* Phase 6: ApplauseEffect */}
+      <ApplauseEffect />
     </div>
   );
 }
